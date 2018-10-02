@@ -1,0 +1,17 @@
+packing-item {
+    .item-index-wrapper {
+        .index-wrapper {
+            width: 30vw;
+            line-height: 30px;
+            padding-left: 20px;
+        }
+        .remove-btn-wrapper {
+            width: 70vw;
+            padding-right: 20px;
+            button {
+                height: 30px !important;
+            }
+        }
+    }
+
+}

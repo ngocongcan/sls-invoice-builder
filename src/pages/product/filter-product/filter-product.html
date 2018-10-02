@@ -1,0 +1,27 @@
+<!--
+  Generated template for the AddProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Search Products</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="cancel()"> Cancel
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" animated="true" placeholder="Search Name or Barcode"></ion-searchbar>
+   <ion-list>
+        <ion-item *ngFor="let product of products" (click)="onClickProduct(product)">
+           <h2>{{product.name}}</h2>
+            <p>{{product.ingredient}}</p>
+            <ion-thumbnail item-end>
+              <img-loader src="{{product.thumbnail_url | productImage}}" useImg></img-loader>
+            </ion-thumbnail>
+        </ion-item>
+    </ion-list>
+</ion-content>

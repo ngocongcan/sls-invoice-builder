@@ -1,0 +1,63 @@
+<!--
+  Generated template for the AddPackingListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="!cartonItem.id" >New Carton</ion-title>
+    <ion-title *ngIf="cartonItem.id" >{{cartonItem.name}}</ion-title>
+    <ion-buttons end>
+      <button *ngIf="!addPackingListForm.valid || !cartonItem.product_items" ion-button disabled>
+        Save
+      </button>
+      <button *ngIf="addPackingListForm.valid && cartonItem.product_items" ion-button full outline (click)="onClickSave()">Save</button>
+      <!-- <button *ngIf="packingList.id" ion-button (click)="onClickCreateInvoce()">
+        Create Invoice
+      </button> -->
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="addPackingListForm">
+        <div class="g-wrapper-general" padding>
+          <ion-item class="item">
+            <ion-label fixed>Carton No </ion-label>
+            <ion-input [readonly]="cartonItem.id ? true : false" type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item class="item">
+            <ion-label fixed>Length (cm) </ion-label>
+            <ion-input type="number" formControlName="length"></ion-input>
+          </ion-item>
+          <ion-item class="item">
+            <ion-label fixed>Width (cm) </ion-label>
+            <ion-input type="number" formControlName="width"></ion-input>
+          </ion-item>
+          <ion-item class="item">
+            <ion-label fixed>Height (cm) </ion-label>
+            <ion-input type="number" formControlName="height"></ion-input>
+          </ion-item>
+          <ion-item class="item">
+            <ion-label fixed>Gross weight (kg) </ion-label>
+            <ion-input type="number" formControlName="grossWeight"></ion-input>
+          </ion-item>
+          <!-- END   -->
+        </div>
+        <div *ngIf="!cartonItem.id" class="g-wrapper-row-space-around btn-add-product-wrapper">
+          <button ion-button round (click)="onClickScan()">
+            <ion-icon class="add" name="add">Add Product</ion-icon>
+          </button>
+        </div>
+    </form>
+      
+    <ion-list>
+      <packing-item *ngFor="let item of cartonItem.product_items; let i = index" [productItem]="item"
+      [productIndex]="i" [cartonItem]="cartonItem"  (itemClickRemove)="remove($event)">
+      </packing-item>
+    </ion-list>
+</ion-content>

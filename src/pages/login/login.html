@@ -1,0 +1,37 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>LOG IN</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="g-wrapper-general">
+    <div class="g-wrapper-space-around">
+      <div>
+        <form [formGroup]="credentials">
+          <ion-item>
+            <ion-label stacked class="g-heading-3">Email *</ion-label>
+            <ion-input type="text" formControlName="username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked class="g-heading-3">Password *</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </form>
+        <ion-label text-left class="g-small seller-label">Login into SLS System</ion-label>
+         <!-- <div class="forgot-password"><a (click)="navForgotPassword()" class=" g-link-style ">Forgot Password?</a></div>  -->
+          <div class="forgot-password"><a (click)="signUp()" class=" g-link-style ">Sign Up</a></div>  
+      </div>
+    </div>
+    <div class="g-wrapper-bottom">
+      <button *ngIf="credentials.valid == false" ion-button full outline disabled (click)="login()">LOG IN</button>
+      <button *ngIf="credentials.valid" ion-button full outline (click)="login()">LOG IN</button>
+    </div>
+  </div>
+</ion-content>

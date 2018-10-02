@@ -1,0 +1,35 @@
+<!-- Generated template for the PackingItemComponent component -->
+<div>
+    <div class="g-wrapper-flex-start">
+        <div class="single-line"></div>
+        <div class="g-wrapper-row-flex-start item-index-wrapper">
+            <div class="g-wrapper-row-flex-start index-wrapper">
+                <span>{{ productIndex + 1}}.</span>
+            </div>
+            <div *ngIf="!cartonItem.id" class="remove-btn-wrapper g-wrapper-row-flex-end">
+                <button (click)="onClickRemove(productIndex)" ion-button color="danger">Remove product</button>
+            </div>
+        </div>
+        <div class="single-line"></div>
+    </div>
+  <div class="detail">
+      <ion-item class="item">
+          <ion-label fixed>Product</ion-label>
+          <div item-content>
+                {{productItem.product.name}}
+          </div>
+      </ion-item>
+      <ion-item class="item">
+          <ion-label fixed>Quantity *</ion-label>
+          <ion-input [readonly]="cartonItem.id ? 'true' : 'false'" type="number" [(ngModel)]="productItem.quantity"></ion-input>
+      </ion-item>
+      <!-- <ion-item class="item">
+          <ion-label stacked>Net weight (kg)</ion-label>
+          <ion-input type="number" [(ngModel)]="packingItem.netWeight"></ion-input>
+      </ion-item>
+      <ion-item class="item">
+          <ion-label stacked>Gross weight</ion-label>
+          <ion-input type="number" [(ngModel)]="packingItem.grossWeight"></ion-input>
+      </ion-item> -->
+  </div>
+</div>

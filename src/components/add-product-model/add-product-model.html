@@ -1,0 +1,64 @@
+<!--
+  Generated template for the AddProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button full outline class="danger" (click)="cancel()">Cancel</button>
+    </ion-buttons>
+    <ion-title *ngIf="!product.id">Add Product</ion-title>
+    <ion-title *ngIf="product.id">Update Product</ion-title>
+    <ion-buttons end>
+      <button *ngIf="addProductForm.valid == false" ion-button full outline disabled (click)="save()">Save</button>
+      <button *ngIf="addProductForm.valid" ion-button full outline (click)="save()">Save</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <form [formGroup]="addProductForm">
+        <div class="g-wrapper-general" padding>
+          <ion-item class="item">
+              <ion-label fixed>Name *</ion-label>
+              <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+
+           <div class="g-wrapper-row-space-around photo-wrapper" (click)="addPhoto()">
+              <img class="add-photo" src="{{product.base64_image}}" *ngIf="product.base64_image"/>
+              <img class="add-photo" src="assets/images/400x300.png" *ngIf="!product.thumbnail_url && !product.base64_image" />
+              <img class="add-photo" src="{{ product.thumbnail_url | productImage}}" *ngIf="product.thumbnail_url && !product.base64_image"/>
+          </div>
+          <ion-item class="item">
+              <ion-label fixed>Barcode </ion-label>
+              <ion-input [readonly]="product.barcode ? 'true' : 'false'" type="text" formControlName="barcode"></ion-input>
+              <!-- <div item-content>
+                {{product.barcode}}
+              </div> -->
+          </ion-item>
+          <ion-item class="item">
+            <ion-label stacked>Ingredient *</ion-label>
+            <ion-textarea type="text" formControlName="ingredient"></ion-textarea>
+          </ion-item>
+          <ion-item class="item">
+            <ion-label fixed>Price (JPY)*</ion-label>
+            <ion-input type="number" formControlName="price"></ion-input>
+          </ion-item>
+          <ion-item class="item">
+            <ion-label fixed>Origin *</ion-label>
+            <ion-input type="text" formControlName="origin"></ion-input>
+          </ion-item>
+          <ion-item class="item">
+            <ion-label fixed>Net Weight (kg) *</ion-label>
+            <ion-input type="number" formControlName="weight"></ion-input>
+          </ion-item>
+        </div>
+        
+    </form>
+</ion-content>

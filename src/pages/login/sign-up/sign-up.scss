@@ -1,0 +1,19 @@
+page-sign-up {
+    ion-list-header {
+        color: $mainColor !important;
+        text-align: left !important;
+    }
+    .text-size {
+        margin-left: 0px;
+        b {
+            color: $mainColor;
+        }
+    }
+    .error {
+        color: $mainColor;
+    }
+    ion-icon {
+        color: #989FAD;
+        margin: 0px !important;
+    }
+}

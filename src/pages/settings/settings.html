@@ -1,0 +1,79 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+      <ion-list-header>
+        General
+      </ion-list-header>
+      <ion-item (click)="onClickProfile()">
+        <ion-icon name="contact" item-start></ion-icon>
+          User Info
+      </ion-item>
+      <ion-item (click)="onClickProducts()">
+        <ion-icon name="barcode" item-start></ion-icon>
+          Products
+      </ion-item>
+      <!-- <form [formGroup]="addShipperForm" padding>
+          <ion-item>
+            <ion-label fixed class="g-heading-3">Name *</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked class="g-heading-3">Address *</ion-label>
+            <ion-input type="text" formControlName="address"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed class="g-heading-3">Phone *</ion-label>
+            <ion-input type="tel" formControlName="phone"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed class="g-heading-3">Fax</ion-label>
+            <ion-input type="tel" formControlName="fax"></ion-input>
+          </ion-item>
+      </form> -->
+      <div *ngIf="appConfig.user && appConfig.user.available_invoice && false">
+        <ion-list-header>
+            Purchases
+        </ion-list-header>
+        <div>
+          <ion-item *ngIf="appConfig.user && appConfig.user.available_invoice">Invoice remains : <span class="available-invoice">{{appConfig.user.available_invoice}} </span></ion-item>
+          <div *ngFor="let appProduct of appConfig.iapProducts">
+            <button ion-item (click)="onClickPurchase(appProduct)">{{appProduct.description}} with  {{appProduct.price}}</button>
+          </div>
+        </div>
+      </div>
+      <ion-list-header>
+          Actions
+      </ion-list-header>
+      <!-- <button ion-item (click)="logout()">LOG OUT</button> -->
+      <ion-item>
+        <ion-icon name="information-circle" item-start></ion-icon>
+          Need a help?
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail" item-start></ion-icon>
+          Send a feedback?
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon name="unlock" item-start></ion-icon>
+          Log out
+      </ion-item>
+    </ion-list>
+    
+    
+
+</ion-content>

@@ -1,0 +1,24 @@
+page-login {
+
+    ion-icon{
+        font-size: 3em;
+    }
+    .seller-label{
+        margin-top: 5px;
+    }
+
+    .g-wrapper-space-around{
+        padding-bottom: 10vh;
+    }
+
+    .forgot-password{
+        @extend .g-text;
+        font-weight: bold;
+        text-align: left;
+        padding-top: 10px;
+        a{
+            color: $mainColor
+        }
+    }
+
+}

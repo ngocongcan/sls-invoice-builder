@@ -1,0 +1,130 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button full outline class="danger" (click)="cancel()">Start over</button>
+    </ion-buttons>
+    <ion-title>Create Invoice</ion-title>
+    <ion-buttons end>
+      <button *ngIf="addInvoiceForm.valid == false" ion-button full outline disabled>Save</button>
+      <button *ngIf="addInvoiceForm.valid" ion-button full outline (click)="save()">Save</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <form [formGroup]="addInvoiceForm">
+        <div class="g-wrapper-general" padding>
+          <div class="item item-header">
+              Packing List Info
+           </div>
+          <div class="detail">
+            <ion-item class="item">
+                <span>Total Carton: {{invoice.totalCarton}} </span>
+                <!-- <ion-input type="number" [readonly] = true formControlName="totalCarton"></ion-input> -->
+            </ion-item>
+            <ion-item class="item">
+              <span>Total Product: {{invoice.totalProduct}} </span>
+              <!-- <ion-input type="number" [readonly] = true formControlName="totalProduct"></ion-input> -->
+            </ion-item>
+            <ion-item class="item">
+                <span>Total Qty: {{invoice.totalQty}} </span>
+                <!-- <ion-input type="number" (ngModel) ="invoice.totalQty" [readonly] = true formControlName="totalQty"></ion-input> -->
+            </ion-item>
+            <ion-item class="item">
+                <span>Total Weight (kg): {{invoice.totalWeight}} </span>
+                <!-- <ion-input type="number" [readonly] = true formControlName="totalWeight"></ion-input> -->
+            </ion-item>
+            <ion-item class="item">
+                <span fixed>Total Volume (m3) : {{invoice.totalVolume}} </span>
+                <!-- <ion-input type="number" [readonly] = true formControlName="totalVolume"></ion-input> -->
+            </ion-item>
+          </div>    
+          <!-- End PackingList Info  -->
+
+          <div class="item item-header">
+                Invoice Info
+          </div>
+          <div class="detail">
+            <ion-item class="item">
+                <ion-label fixed>number * </ion-label>
+                <ion-input type="number" formControlName="code"></ion-input>
+            </ion-item>
+            <ion-item class="item">
+                <ion-label fixed>From </ion-label>
+                <ion-input type="text" formControlName="from"></ion-input>
+            </ion-item>
+            <ion-item class="item">
+                <ion-label fixed>To </ion-label>
+                <ion-input type="text" formControlName="to"></ion-input>
+            </ion-item>
+            <ion-item class="item">
+                <ion-label fixed>Terms of Payment </ion-label>
+                <ion-input type="text" formControlName="termsOfPayment"></ion-input>
+            </ion-item>
+            <!-- <ion-item class="item">
+                <ion-label fixed>Volume (m3) </ion-label>
+                <ion-input type="number" formControlName="volume"></ion-input>
+            </ion-item> -->
+            <ion-item class="item">
+              <ion-label stacked>BL description </ion-label>
+              <ion-textarea type="text" formControlName="blDescription"></ion-textarea>
+            </ion-item>
+            <ion-item class="item">
+                <ion-label stacked>Remarks </ion-label>
+                <ion-textarea type="text" formControlName="remarks"></ion-textarea>
+            </ion-item>
+          </div>    
+          <div class="item item-header">
+                Consignee Info
+          </div>
+          <div class="detail">
+            <ion-item class="item">
+                <ion-label stacked>Name *</ion-label>
+                <ion-input type="text" formControlName="consignee_name"></ion-input>
+            </ion-item>
+            <ion-item class="item">
+                <ion-label stacked>Address *</ion-label>
+                <ion-input type="text" formControlName="consignee_address"></ion-input>
+            </ion-item>
+            <ion-item class="item">
+                <ion-label stacked>Phone* </ion-label>
+                <ion-input type="tel" formControlName="consignee_phone"></ion-input>
+            </ion-item>
+              <ion-item class="item">
+                <ion-label stacked>Fax </ion-label>
+                <ion-input type="tel" formControlName="consignee_fax"></ion-input>
+            </ion-item>
+          </div>    
+          <!-- end consignee  -->
+
+          <div class="item item-header">
+                Shipper Info
+          </div>
+          <div class="detail">
+            <ion-item class="item">
+                <ion-label stacked>Name *</ion-label>
+                <ion-input type="text" formControlName="shipper_name"></ion-input>
+            </ion-item>
+            <ion-item class="item">
+                <ion-label stacked>Address* </ion-label>
+                <ion-input type="text" formControlName="shipper_address"></ion-input>
+            </ion-item>
+            <ion-item class="item">
+                <ion-label fixed>Phone *</ion-label>
+                <ion-input type="tel" formControlName="shipper_phone"></ion-input>
+            </ion-item>
+              <ion-item class="item">
+                <ion-label fixed>Fax </ion-label>
+                <ion-input type="tel" formControlName="shipper_fax"></ion-input>
+            </ion-item>
+          </div>    
+          <!-- END   -->
+        </div>
+        
+    </form>
+</ion-content>

@@ -1,0 +1,11 @@
+{
+  "name": "InvoiceBuilder",
+  "app_id": "04677011",
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://sls248.com"
+    }
+  ]
+}
